@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "nodemon --exec babel-node src/server.js",
-    "build": "babel src -d build --copy-files && node build/server.js",
+    "build": "babel src -d build --copy-files && pm2 start build/server.js",
     "resetDB": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "execSequelize": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
@@ -38,6 +38,7 @@
     "sequelize": "6.25.3",
     "sequelize-cli": "6.5.1",
     "uuid": "9.0.0",
-    "pg": "8.9.0"
+    "pg": "8.9.0",
+    "pm2": "5.2.2"
   }
 }
